@@ -1,0 +1,1 @@
+python can be used on a server set application very much as javascript

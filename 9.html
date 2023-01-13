@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Special string</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>INPUT</legend>
+            Enter a string:
+            <input type="text" name="string" id="ip"><br>
+            <input type="button" onclick="myfunc()" value="Submit">
+            <fieldset>
+                <legend>OUTPUT</legend>
+            </fieldset>
+            <p id="op"></p><br>
+        </fieldset>
+    </form>
+    <script>
+        function myfunc() {
+            x = document.getElementById("ip").value;
+            x = x.split("");
+            flag = "True.";
+            if (x[0] != "+" || x[0] != "=" || x[x.length - 1] != "+" || x[x.length - 1] != "=") {
+                flag = "False.";
+            }
+            else {
+                flag = "True.";
+            }
+            for (i = 0; i < x.length; i++) {
+                if (x[i] >= "A" && x[i] <= "z") {
+                    if (x[i - 1] != "+" || x[i + 1] != "+") {
+                        flag = "False.";
+                        break;
+                    }
+                }
+                else {
+                    flag = "True.";
+                }
+            }
+            document.getElementById("op").innerHTML = flag;
+        } 
+    </script>
+</body>
+
+</html>

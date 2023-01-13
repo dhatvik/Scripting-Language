@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Input</legend>
+            Enter a String:
+            <input type="text" , id="ip" ><br><br>
+            Enter a Search string:
+            <input type="text" , id="sip"><br><br>
+            <input type="button" onclick="myfunc()" value="Submit">
+        </fieldset>
+        <fieldset>
+            <legend>OUTPUT</legend>
+            Entered String is:<p id="ent"></p>
+            Number of white spaces:<p id="sp"></p>
+            Number of digits in the string:<p id="num"></p>
+            Number of alphabets in string:<p id="alp"></p>
+            Number of occurence of search string in given string:<p id="oc"></p>
+            pos of search string:<p id="po"></p>
+        </fieldset>
+    </form>
+    <script>
+        function myfunc(){
+            x=document.getElementById('ip').value;
+            y=document.getElementById('sip').value;
+            document.getElementById('ent').innerHTML=x;
+            a=x.split(" ");
+            count=0;
+            spaces=0;
+            nums=0;
+            alpha=0;
+            for(i=0;i<x.length;i++){
+                if(x[i]==' ') spaces++;
+                else if(x[i]>='A' && x[i]<='z') alpha++;
+                else if(x[i]>='0' && x[i]<='9') nums++;
+            }
+            document.getElementById('sp').innerHTML=spaces;
+            document.getElementById('alp').innerHTML=alpha;
+            document.getElementById('num').innerHTML=nums;
+
+            for(i=0;i<a.length;i++){
+                if(a[i]==y) count++;
+            }
+            document.getElementById('oc').innerHTML=count;
+            pos=x.search(y);
+            if(pos==-1) m="String Not Found";
+            else m=pos;
+            document.getElementById('po').innerHTML=m;
+        }
+    </script>
+</body>
+</html>

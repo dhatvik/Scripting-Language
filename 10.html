@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <title>Baker street</title>
+</head>
+
+<body>
+    <h1>BAKER STREET</h1>
+    <hr>
+    <form>
+        <h2>Menu</h2>
+        <ol>
+            <li>Cake Rs. 100</li> <input type="button" onclick="cake()" value="Add item">
+            <br><br>
+            <li>Bread Rs. 40</li> <input type="button" onclick="bread()" value="Add item">
+            <br><br>
+            <li>Cookies Rs. 80</li> <input type="button" onclick="cookies()" value="Add item">
+            <br><br>
+            <li>Croissant Rs. 120</li> <input type="button" onclick="cro()" value="Add item">
+            <br><br>
+        </ol>
+    </form>
+    <hr>
+    <h2>Total</h2>
+    <p id="res"></p>
+    <hr>
+    <form>
+        <input type="button" onclick="rem()" value="Remove all items">
+        <input type="button" onclick="out()" value="Check out">
+    </form>
+    <script>
+        price = 0;
+        function cake() {
+            price += 100;
+            document.getElementById("res").innerHTML = "Rs." + price;
+        }
+        function bread() {
+            price += 40;
+            document.getElementById("res").innerHTML = "Rs." + price;
+        }
+
+        function cookies() {
+            price += 80;
+            document.getElementById("res").innerHTML = "Rs." + price;
+        }
+        function cro() {
+            price += 120;
+            document.getElementById("res").innerHTML = "Rs." + price;
+        }
+        function out() {
+            window.alert("Total price is Rs." + price + "\nThank you :)");
+        }
+        function rem() {
+            price = 0;
+            document.getElementById("res").innerHTML = "Rs." + price;
+        } 
+    </script>
+</body>
+
+</html>

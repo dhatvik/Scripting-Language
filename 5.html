@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>String conversion</title>
+</head>
+
+<body>
+    <h4 align="center">STRING CONVERSION</h4>
+    <form>
+        <fieldset>
+            <legend>INPUT</legend>
+            Enter a string:
+            <input type="text" id="ip"><br>
+            <input type="button" onclick="myfunc()" value="Submit">
+        </fieldset>
+        <fieldset>
+                <legend>OUTPUT</legend>
+                <p id="op"></p><br>
+        </fieldset>  
+    </form>
+    <script>
+        function myfunc(){
+            string1 = document.getElementById("ip").value;
+            str = string1.split('');
+            for (i = 0; i < str.length; i++) {
+                switch (str[i]) {
+                    case ' ': break;
+                    case 'z': str[i] = 'a';
+                        break;
+                    case 'Z': str[i] = 'A';
+                        break;
+                    default:
+                        str[i] = String.fromCharCode(1 + str[i].charCodeAt());
+                }
+                switch (str[i]) {
+                    case 'a':
+                    case 'e':
+                    case 'i':
+                    case 'o':
+                    case 'u': str[i] = str[i].toUpperCase();
+                }
+            }
+            str = str.join('');
+            // document.getElementById("String1").innerHTML = string1;
+            document.getElementById("op").innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

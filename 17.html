@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ori"></p>
+    <form>
+        <fieldset>
+            <legend>INPUT</legend>
+            enter the string:
+            <input type="text"  id="ip"><br>
+            <input type="button"  onclick="myfunc()" value="submit">
+        </fieldset>
+    </form>
+    <p id="newstr"></p>
+    <p id="x"></p>
+    <p id="y"></p>
+    <script>
+        original_str=['this','is','a','list','of','words']
+        mylen=[];
+        lenmorethan3=[];
+        document.getElementById('ori').innerHTML="The original String is " + original_str;
+        
+        function myfunc(){
+            x=document.getElementById("ip").value;
+            original_str.unshift(x);
+            document.getElementById('newstr').innerHTML="The new string is " + original_str;
+            myfuncone(original_str);
+        }
+
+        function myfuncone(original_str){
+            for(i=0;i<original_str.length;i++){
+                mylen[i]=original_str[i].length;
+            }
+            document.getElementById('x').innerHTML="The array  is " + mylen;
+            myfunctwo(original_str,mylen);
+        }
+
+        function myfunctwo(original_str,mylen){
+            for(i=0;i<original_str.length;i++){
+            if (mylen[i]>3){
+                lenmorethan3.push(original_str[i])
+            }
+        }
+        document.getElementById('y').innerHTML="The array  is " + lenmorethan3;
+        }
+    </script>
+</body>
+</html>
